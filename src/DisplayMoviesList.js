@@ -8,7 +8,7 @@ class DisplayMoviesList extends Component {
 
     var moviesList = [
       new Movie(1, 'Inception', './inception.jpg', 'Thriller', 'English', 5, 1000),
-      new Movie(2, 'The SMURFS 3D', './smurf.jpg', 'Anime', 'Hindi', 4, 100),
+      new Movie(2, 'The Smurfs 3D', './smurf.jpg', 'Anime', 'Hindi', 4, 100),
       new Movie(3, 'Rava - The Last Dragon', './rava.jpg', 'Anime', 'English', 3, 10),
       new Movie(4, 'Fast and Furious 6', './fast_and_furious.jpg', 'Action', 'Hindi', 2, 50),
       new Movie(5, 'Interstellar', './interstellar.jpg', 'Sci-Fi', 'English', 4, 1000),
@@ -29,16 +29,16 @@ class DisplayMoviesList extends Component {
       this.state.movies.map((movie) => {
         return(
           <div className="col">
-            <DisplayMovie movie={movie}></DisplayMovie>
+            <DisplayMovie movie={movie} onBook={this.props.onMovieBook}></DisplayMovie>
           </div>
-          )
+        )
       })
     )
   }
 
   render() {
     return (
-      <div class="row row-cols-1 row-cols-md-4 g-4">
+      <div className="row row-cols-1 row-cols-md-4 g-4">
         {this.renderMovies()}
       </div>
     )
