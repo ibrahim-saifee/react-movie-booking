@@ -1,0 +1,14 @@
+.header {
+  background-color: #243c50;
+  height: 100px;
+}
+
+.header-logo {
+  height: 100px;
+}
+
+.header-text {
+  color: white;
+  top: 25% !important;
+  right: auto !important;
+}
