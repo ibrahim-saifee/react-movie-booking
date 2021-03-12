@@ -2,6 +2,15 @@ import React, { Component } from "react"
 import "./DisplayMovie.css"
 
 class DisplayMovie extends Component {
+  renderRatings() {
+    var stars = []
+    for (let step = 0; step < this.props.movie.rating; step++) {
+      stars.push(<span className="fa fa-star"></span>)
+    }
+
+    return(stars)
+  }
+
   render() {
     return (
       <div className="card movie-card">
@@ -18,6 +27,7 @@ class DisplayMovie extends Component {
             </div>
             <div className="col">
               <a href="#" className="btn btn-primary">Book Now</a>
+              <div className="movie-ratings">{this.renderRatings()}</div>
             </div>
           </div>
         </div>
