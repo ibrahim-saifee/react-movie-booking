@@ -5,6 +5,7 @@ import Header from "./Header"
 import DisplayMoviesList from "./DisplayMoviesList"
 import DisplayCinemasList from "./DisplayCinemasList"
 import DisplayBookingList from "./DispalyBookingList"
+import Footer from "./Footer"
 
 class App extends React.Component {
 
@@ -73,6 +74,7 @@ class App extends React.Component {
         <Header></Header>
         <hr />
         { this.renderPage(this.state.page) }
+        <Footer></Footer>
       </React.Fragment>
     );
   }
