@@ -19,8 +19,8 @@ class DisplayCinema extends Component {
                 <p>Seats Available: {this.props.cinema.seatsAvailable}</p>
               </div>
               <div className="col">
-                <p>Rs. {this.props.cinema.price}</p>
-                <input type="button" className="btn btn-primary" value="Book Now" />
+                <p className="text-danger">Rs. {this.props.cinema.price}</p>
+                <input type="button" className="btn btn-primary" value="Book Now" onClick={this.props.onBook.bind(this, this.props.cinema)} />
               </div>
             </div>
             <footer className="blockquote-footer">{this.props.cinema.address}</footer>

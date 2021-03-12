@@ -18,6 +18,7 @@ class App extends React.Component {
     this.state = {
       page: this.pages.displayMoviesList,
       selectedMovie: null,
+      selectedCinema: null,
     }
   }
 
@@ -31,7 +32,16 @@ class App extends React.Component {
   onMovieCancelHandler = () => {
     this.setState({
       selectedMovie: null,
+      selectedCinema: null,
       page: this.pages.displayMoviesList
+    })
+  }
+
+  onCinemaBookHandler = (movie, cinema) => {
+    this.setState({
+      selectedMovie: movie,
+      selectedCinema: cinema,
+      page: this.pages.displayMoviesList,
     })
   }
 
@@ -40,7 +50,7 @@ class App extends React.Component {
       case this.pages.displayMoviesList:
         return(<DisplayMoviesList onMovieBook={this.onMovieBookHandler}></DisplayMoviesList>)
       case this.pages.displayCinemas:
-        return(<DisplayCinemasList selectedMovie={this.state.selectedMovie} onMovieCancel={this.onMovieCancelHandler}></DisplayCinemasList>)
+        return(<DisplayCinemasList selectedMovie={this.state.selectedMovie} onCinemaBook={this.onCinemaBookHandler} onMovieCancel={this.onMovieCancelHandler}></DisplayCinemasList>)
     }
   }
 

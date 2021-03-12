@@ -8,10 +8,10 @@ class DisplayCinemasList extends Component {
     super(props)
 
     var cinemasList = [
-      new Cinema(1, 'Inox', 250, 100, 'March 27, 2021', '20:45', '123, Inox cinemas, Fake Mall, City'),
-      new Cinema(2, 'PVR', 300, 100, 'March 27, 2021', '21:00', '123, PVR cinemas, Fake Mall, City'),
-      new Cinema(3, 'Multi-plex', 350, 100, 'March 27, 2021', '19:00', '123, Multi-plex cinemas, Fake Mall, City'),
-      new Cinema(4, 'Universal', 150, 100, 'March 27, 2021', '13:00', '123, Universal cinemas, Fake Mall, City')
+      new Cinema(1, 'Inox', 250, 100, 'March 27, 2021', '20:45', '153, Inox cinemas, Fake Mall, City'),
+      new Cinema(2, 'PVR', 300, 100, 'March 27, 2021', '21:00', '145, PVR cinemas, Fake Mall, City'),
+      new Cinema(3, 'Multiplex', 350, 100, 'March 27, 2021', '19:00', '189, Multiplex cinemas, Fake Mall, City'),
+      new Cinema(4, 'Universal', 150, 100, 'March 27, 2021', '13:00', '110, Universal cinemas, Fake Mall, City')
     ]
 
     this.state = {
@@ -24,7 +24,7 @@ class DisplayCinemasList extends Component {
       this.state.cinemas.map((cinema) => {
         return(
           <React.Fragment>
-            <DisplayCinema cinema={cinema}></DisplayCinema> <br/>
+            <DisplayCinema cinema={cinema} onBook={this.props.onCinemaBook.bind(this, this.props.selectedMovie)}></DisplayCinema> <br/>
           </React.Fragment>
         )
       })
