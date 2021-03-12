@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import DisplayMovie from "./DisplayMovie"
-import Movie from "./Movie"
+import Movie from "./models/Movie"
 
 class DisplayMoviesList extends Component {
   constructor(props) {
