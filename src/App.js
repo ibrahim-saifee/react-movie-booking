@@ -3,7 +3,8 @@ import './App.css';
 import React from 'react';
 import Header from "./Header"
 import DisplayMoviesList from "./DisplayMoviesList"
-import DisplayCinemasList from './DisplayCinemasList';
+import DisplayCinemasList from "./DisplayCinemasList"
+import DisplayBookingList from "./DispalyBookingList"
 
 class App extends React.Component {
 
@@ -12,13 +13,15 @@ class App extends React.Component {
 
     this.pages = {
       displayMoviesList: 0,
-      displayCinemas: 1
+      displayCinemas: 1,
+      displayBookingList: 2,
     }
 
     this.state = {
       page: this.pages.displayMoviesList,
       selectedMovie: null,
       selectedCinema: null,
+      bookings: []
     }
   }
 
@@ -31,26 +34,36 @@ class App extends React.Component {
 
   onMovieCancelHandler = () => {
     this.setState({
-      selectedMovie: null,
-      selectedCinema: null,
       page: this.pages.displayMoviesList
     })
   }
 
   onCinemaBookHandler = (movie, cinema) => {
+    this.setState((prevState) => {
+      var newBooking = { movie: movie, cinema: cinema }
+
+      return {
+        ...prevState,
+        bookings: [...prevState.bookings, newBooking],
+        page: this.pages.displayBookingList,
+      }
+    })
+  }
+
+  onMyBookingClickHandler = () => {
     this.setState({
-      selectedMovie: movie,
-      selectedCinema: cinema,
-      page: this.pages.displayMoviesList,
+      page: this.pages.displayBookingList,
     })
   }
 
   renderPage(page) {
     switch(page) {
       case this.pages.displayMoviesList:
-        return(<DisplayMoviesList onMovieBook={this.onMovieBookHandler}></DisplayMoviesList>)
+        return(<DisplayMoviesList onMovieBook={this.onMovieBookHandler} onMyBookingClick={this.onMyBookingClickHandler}></DisplayMoviesList>)
       case this.pages.displayCinemas:
         return(<DisplayCinemasList selectedMovie={this.state.selectedMovie} onCinemaBook={this.onCinemaBookHandler} onMovieCancel={this.onMovieCancelHandler}></DisplayCinemasList>)
+      case this.pages.displayBookingList:
+        return(<DisplayBookingList bookings={this.state.bookings} onHomeClick={this.onMovieCancelHandler}></DisplayBookingList>)
     }
   }
 

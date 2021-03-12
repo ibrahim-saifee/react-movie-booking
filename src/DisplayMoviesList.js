@@ -38,9 +38,15 @@ class DisplayMoviesList extends Component {
 
   render() {
     return (
-      <div className="row row-cols-1 row-cols-md-4 g-4">
-        {this.renderMovies()}
-      </div>
+      <React.Fragment>
+        <div className="row">
+          <input type="button" value="My Bookings" className="btn btn-primary" onClick={this.props.onMyBookingClick} />
+        </div>
+        <br />
+        <div className="row row-cols-1 row-cols-md-4 g-4">
+          {this.renderMovies()}
+        </div>
+      </React.Fragment>
     )
   }
 }
