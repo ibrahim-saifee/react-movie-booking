@@ -9,7 +9,7 @@ class DisplayMovie extends Component {
   renderRatings() {
     var stars = []
     for (let step = 0; step < this.props.movie.rating; step++) {
-      stars.push(<span className="fa fa-star"></span>)
+      stars.push(<span className="fa fa-star ratings-star"></span>)
     }
 
     return(stars)
